@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script type="text/javascript" src="../core/jquery-3.7.1.min.js"></script>
     <title>ADMIN TOOLS</title>
 
 </head>
@@ -41,40 +42,40 @@
                     </ul>
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="Dashboard_view.php" data-page="dashboard">
+                            <a href="#" data-page="dashboard">
                                 <i class='bx bx-home-alt icon'></i>
                                 <span class="text nav-text">Dashboard</span>
         
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="Users_view.php" data-page="user">
-                                <i class='bx bx-user icon'></i>
-                                <span class="text nav-text">Người dùng</span>
-        
-                            </a>
-                        </li> 
-                        <li class="nav-link">
-                            <a href="Products_view.php" class="ajax-link">
+                            <a href="#" class="ajax-link" data-page="product">
                                 <i class='bx bx-category icon'></i>
                                 <span class="text nav-text">Sản phẩm</span>
 
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="Customers_view.php" class="ajax-link">
+                            <a href="#" class="ajax-link" data-page="customer">
                                 <i class='bx bxs-user-detail icon'></i>
                                 <span class="text nav-text">Khách hàng</span>
         
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="Payments_view.php" class="ajax-link">
+                            <a href="#" class="ajax-link" data-page="payment">
                                 <i class='bx bx-credit-card icon'></i>
                                 <span class="text nav-text">Thanh toán</span>
         
                             </a>
                         </li>
+                        <li class="nav-link">
+                            <a href="#" data-page="user">
+                                <i class='bx bx-user icon'></i>
+                                <span class="text nav-text">Người dùng</span>
+        
+                            </a>
+                        </li> 
                     </ul>
                 </div>
                 <div class="bottom-content">
@@ -99,9 +100,10 @@
                 </div>
             </div>
         </nav>
-    <div id="page_view">
+    <div id="content" class="main_contnent">
         
     </div>
-        <script type="text/javascript" src="../public/js/nav_control.js"></script>
+    <script type="text/javascript" src="../public/js/nav_control.js"></script>
+    <script type="text/javascript" src="./ajax_process_nav.js"></script>
 </body>
 </html>
