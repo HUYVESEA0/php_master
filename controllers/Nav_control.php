@@ -104,6 +104,6 @@
         
     </div>
     <script type="text/javascript" src="../public/js/nav_control.js"></script>
-    <script type="text/javascript" src="../controllers/ajax_process_nav.js"></script>
+    <script type="text/javascript" src="./ajax_nav.js"></script>
 </body>
 </html>
