@@ -1,7 +1,10 @@
 $(document).ready(function() {
+
+    $('#content').load('../Pages/home.php');
+
     $('.ajax-link').click(function(event) {
         event.preventDefault();
-        var page = $this.data('page');
+        var page = $(this).data('page');
         loadPage(page);
     });
 });

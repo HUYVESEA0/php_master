@@ -42,7 +42,7 @@
                     </ul>
                     <ul class="menu-links">
                         <li class="nav-link">
-                            <a href="#" data-page="dashboard">
+                            <a href="#" class="ajax-link" data-page="dashboard">
                                 <i class='bx bx-home-alt icon'></i>
                                 <span class="text nav-text">Dashboard</span>
         
@@ -52,7 +52,6 @@
                             <a href="#" class="ajax-link" data-page="product">
                                 <i class='bx bx-category icon'></i>
                                 <span class="text nav-text">Sản phẩm</span>
-
                             </a>
                         </li>
                         <li class="nav-link">
@@ -70,7 +69,7 @@
                             </a>
                         </li>
                         <li class="nav-link">
-                            <a href="#" data-page="user">
+                            <a href="#" class="ajax-link" data-page="user">
                                 <i class='bx bx-user icon'></i>
                                 <span class="text nav-text">Người dùng</span>
         
@@ -100,7 +99,7 @@
                 </div>
             </div>
         </nav>
-    <div id="content" class="main_content">
+    <div id="content" class="main-content">
         
     </div>
     <script type="text/javascript" src="../public/js/nav_control.js"></script>
