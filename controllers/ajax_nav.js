@@ -6,8 +6,21 @@ $(document).ready(function() {
         event.preventDefault();
         var page = $(this).data('page');
         loadPage(page);
+        history.pushState(null, '', '?page=' + page);
     });
+
+    // Handle back/forward navigation
+    window.onpopstate = function() {
+        var page = new URLSearchParams(window.location.search).get('page');
+        if (page) {
+            loadPage(page);
+        } else {
+            loadPage('home');
+            
+        }
+    };
 });
+
 function loadPage(page) {
     $.ajax({
         url: '../Pages/' + page + '.php',
