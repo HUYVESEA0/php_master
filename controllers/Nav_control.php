@@ -100,7 +100,7 @@
                 </div>
             </div>
         </nav>
-    <div id="content" class="main_contnent">
+    <div id="content" class="main_content">
         
     </div>
     <script type="text/javascript" src="../public/js/nav_control.js"></script>
