@@ -13,6 +13,7 @@ function loadPage(page) {
         type: 'POST',
         data: {page: page},
         success: function(data) {
+            console.log(data);
             $('#content').html(data);
         }
     });
