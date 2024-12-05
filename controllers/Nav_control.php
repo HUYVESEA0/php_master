@@ -6,6 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet"/>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../public/css/nav_control.css">
+    <link rel="stylesheet" href="../public/css/loader.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
@@ -100,7 +101,7 @@
             </div>
         </nav>
     <div id="content" class="main-content">
-        
+        <div id="loader"></div>
     </div>
     <script type="text/javascript" src="../public/js/nav_control.js"></script>
     <script type="text/javascript" src="./ajax_nav.js"></script>
