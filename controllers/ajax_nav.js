@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    $('#content').load('../Pages/home.php');
+    $('#content').load('../Pages/home.php', function() {
+        history.pushState(null, '', '?page=home');
+    });
 
     $('.ajax-link').click(function(event) {
         event.preventDefault();

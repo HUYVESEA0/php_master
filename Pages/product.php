@@ -1,5 +1,5 @@
 <h1>product</h1>
-    <p><span class="text-view-products"></span></p>
+    <p><span id="product"></span></p>
                 <div class="view-table">
                     <table id="table">
                         <thead>
@@ -12,4 +12,4 @@
                         </tbody>
                     </table>
                 </div>
-<script src="../Pages/index_page.js"></script>
+<script src="../public/js/product.js"></script>

@@ -1,5 +1,5 @@
 <h1>customer</h1>
-<p><span class="text-view-products"></span></p>
+<p><span id="customer"></span></p>
                 <div class="view-table">
                     <table id="table">
                         <thead>
@@ -11,4 +11,5 @@
                             </tr>
                         </tbody>
                     </table>
-                </div> 
+                </div>
+<script src="../public/js/customer.js"></script> 
