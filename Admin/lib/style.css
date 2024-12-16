@@ -147,7 +147,7 @@ body.dark
     width: 100%;
     display: flex;
     align-items: center;
-    border-radius: px;
+    border-radius: 1px;
     transition: all 0.5s ease
 }
 .slidebar li a:hover
@@ -351,4 +351,51 @@ body.dark .switch::before
     width: 100%;
     background: blue;
     height: 100%;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--slidebar-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 100%; /* Align next to the nav element */
+    top: 0; /* Align horizontally */
+}
+
+.dropdown-content a {
+    color: var(--text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--pri-color);
+}
+
+.nav-link:hover {
+    background-color: var(--pri-color);
+    border-radius: 6px;
+}
+
+.nav-link.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: var(--slidebar-color);
+}
+
+.nav-link.dropdown:hover > a {
+    background-color: var(--pri-color);
+    border-radius: 6px;
+}
+
+.nav-link.dropdown .dropdown-content:hover {
+    background-color: var(--slidebar-color);
 }

@@ -1,0 +1,22 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ul, li, a
+{
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    font-size: 15px;
+}
+.menu-bar .list
+{
+    border: 1px solid #000;
+}
