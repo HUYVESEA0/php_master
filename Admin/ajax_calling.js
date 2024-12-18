@@ -33,7 +33,6 @@ $(document).ready(function() {
 });
 
 function loadPage(page) {
-
     $.ajax({
         url: '../Admin/Pages/' + page + '.php',
         type: 'POST',
