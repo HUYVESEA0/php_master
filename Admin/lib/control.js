@@ -53,3 +53,4 @@ document.querySelectorAll('.dropdown').forEach(dropdown => {
         this.querySelector('.dropdown-content').style.display = 'none';
     });
 });
+

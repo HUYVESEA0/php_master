@@ -1,3 +1,5 @@
-<h1>user</h1>
-<p><span id="user"></span></p>
 <?php
+require '../fucn.php';
+?>
+<p>Danh sách người dùng</p>
+<?php user_view(); ?>

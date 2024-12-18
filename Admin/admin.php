@@ -16,7 +16,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script type="text/javascript" src="../Admin/lib/jquery-3.7.1.min.js"></script>
     <title>ADMIN TOOLS</title>
 
@@ -61,7 +60,9 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="type-product">Nhóm</a>
+                            <a href="#" class="ajax-link" data-page="add-type-product">Thêm nhóm mới</a>
                             <a href="#" class="ajax-link" data-page="product-list">Danh sách sản phẩm</a>
+                            <a href="#" class="ajax-link" data-page="add-product">Thêm sản phẩm mới</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
@@ -71,6 +72,7 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="type-customer">Loại khách hàng</a>
+                            <a href="#" class="ajax-link" data-page="add-type-customer">Thêm loại khách hàng mới</a>
                             <a href="#" class="ajax-link" data-page="customer-list">Danh sách khách hàng</a>
                         </div>
                     </li>
@@ -81,7 +83,9 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="payment-history">Lịch sử giao dịch</a>
+                            <a href="#" class="ajax-link" data-page="payment-status">Trạng thái thanh toán</a>
                             <a href="#" class="ajax-link" data-page="payment-methods">Phương thức thanh toán</a>
+                            <a href="#" class="ajax-link" data-page="payment-add-method">Thêm phương thức thanh toán</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
@@ -92,6 +96,7 @@
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="user-role">Phân quyền</a>
                             <a href="#" class="ajax-link" data-page="user-list">Danh sách truy cập</a>
+                            <a href="#" class="ajax-link" data-page="add-user">Thêm người dùng mới</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
