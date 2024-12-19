@@ -37,6 +37,19 @@ $(document).ready(function() {
         }, 1000);
     });
 
+    $('#add-type-product').on('submit', function(event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+            url: '../../func_ajax.php', // Corrected path
+            type: 'POST',
+            data: formData,
+            success: function(response) {
+                $('#result').html(response);
+            }
+        });
+    });
+
 });
 
 function loadPage(page) {

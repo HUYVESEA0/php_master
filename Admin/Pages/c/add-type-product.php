@@ -1,5 +1,7 @@
-<form id="add-type-product" method="post" action="./func_ajax.php">
-    <label for="type_name">Type Name:</label>
-    <input type="text" id="type_name" name="type_name" required>
-    <button type="submit">Add</button>
+<form method="post" id="add-type-product" action="./func_ajax.php"> <!-- Corrected path -->
+    <div class="form-froup">
+        <label for="name">Tên loại sản phẩm</label>
+        <input type="text" name="name" id="name" class="add-type-product" required>
+    </div>
+    <button type="submit">add</button>
 </form>
