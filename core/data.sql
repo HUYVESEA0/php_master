@@ -6,6 +6,7 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 -- Modify existing users table to add role
 ALTER TABLE users 
 ADD COLUMN role ENUM('admin', 'user', 'non-user') NOT NULL DEFAULT 'non-user';
@@ -18,13 +19,13 @@ UPDATE users SET role = 'non-user' WHERE role IS NULL;
 
 -- Create table for product categories
 CREATE TABLE product_categories (
-    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
+    id CHAR(6) NOT NULL PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Create table for products
 CREATE TABLE products (
-    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
+    id CHAR(6) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     category_id CHAR(6),
     price DECIMAL(10, 2) NOT NULL,
@@ -36,7 +37,7 @@ CREATE TABLE products (
 
 -- Create table for product imports
 CREATE TABLE product_imports (
-    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
+    id CHAR(6) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     category_id CHAR(6),
     price DECIMAL(10, 2) NOT NULL,
@@ -45,13 +46,13 @@ CREATE TABLE product_imports (
 
 -- Create table for customer types
 CREATE TABLE customer_types (
-    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
+    id CHAR(6) PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Create table for customers
 CREATE TABLE customers (
-    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
+    id CHAR(6) PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     phone VARCHAR(20),
@@ -62,7 +63,7 @@ CREATE TABLE customers (
 
 -- Create table for payments
 CREATE TABLE payments (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY,
     customer_id CHAR(6),
     amount DECIMAL(10, 2) NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

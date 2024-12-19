@@ -38,10 +38,39 @@ $(document).ready(function() {
                 $('#message').text(response.message);
                 if (response.success) {
                     $('#addTypeProductForm')[0].reset();
+                    setTimeout(function() {
+                    location.reload();
+                    },500);
                 }
             }
         });
     });
+
+    $(document).on('submit', '#addProductForm', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        formData.append('action', 'addProduct');
+        $.ajax({
+            type: 'POST',
+            url: '../Admin/func_ajax.php',
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function(response) {
+                $('#message').text(response.message);
+                if (response.success) {
+                    $('#addProductForm')[0].reset();
+                    setTimeout(function() {
+                        location.reload();
+                    },500);
+                }
+            }
+        });
+    });
+
+    // Tải danh mục khi trang được tải
+    loadCategories();
 });
 
 function loadPage(page) {
@@ -55,6 +84,25 @@ function loadPage(page) {
         },
         complete: function() {
             $('#loader').hide();
+        }
+    });
+}
+
+function loadCategories() {
+    $.ajax({
+        type: 'POST',
+        url: '../Admin/func_ajax.php',
+        data: {action: 'getCategories'},
+        dataType: 'json',
+        success: function(response) {
+            var categorySelect = $('#categoryId');
+            categorySelect.empty();
+            $.each(response, function(index, category) {
+                categorySelect.append($('<option>', {
+                    value: category.id,
+                    text: category.name
+                }));
+            });
         }
     });
 }

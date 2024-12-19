@@ -43,7 +43,7 @@ function type_product()
 function product_view()
 {
     $conn = connect();
-    $sql = "SELECT p.id, p.name, c.name as category, p.price, p.description, p.image, p.quantity 
+    $sql = "SELECT p.id, p.name, p.category_id, c.name as category, p.price, p.description, p.image, p.quantity 
             FROM products p 
             JOIN product_categories c ON p.category_id = c.id";
     $result = mysqli_query($conn, $sql);
@@ -70,7 +70,25 @@ function product_view()
                         <td><?php echo $row['category']; ?></td>
                         <td><?php echo $row['price']; ?></td>
                         <td><?php echo $row['description']; ?></td>
-                        <td><img src="<?php echo $row['image']; ?>" alt="Product Image" width="50"></td>
+                        <td>
+                            <?php 
+                            if (!empty($row['image'])) {
+                                $imagePath = "../upload/{$row['category_id']}/{$row['id']}/{$row['image']}";
+                                if (file_exists($imagePath)) {
+                                    echo "<img src='$imagePath' alt='Product Image' width='50'>";
+                                } else {
+                                    echo "No Image";
+                                    // Debugging information
+                                    echo "<br>Path: $imagePath";
+                                    echo "<br>File does not exist.";
+                                }
+                            } else {
+                                echo "No Image";
+                                // Debugging information
+                                echo "<br>Image field is empty.";
+                            }
+                            ?>
+                        </td>
                         <td><?php echo $row['quantity']; ?></td>
                     </tr>
                 <?php } ?>
