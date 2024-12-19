@@ -38,7 +38,6 @@ $(document).ready(function() {
             history.pushState(null, '', '?page=' + page);
         }, 1000);
     });
-});
 
 function loadPage(page) {
     $.ajax({
