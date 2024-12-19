@@ -1,8 +1,6 @@
 $(document).ready(function() {
-
-    $('#content').load('../Admin/Pages/home.php', function() {
-        history.pushState(null, '', '?page=home');
-    });
+    var initialPage = new URLSearchParams(window.location.search).get('page') || 'home';
+    loadPage(initialPage);
 
     window.onpopstate = function() {
         var page = new URLSearchParams(window.location.search).get('page');
