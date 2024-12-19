@@ -27,6 +27,21 @@ $(document).ready(function() {
         }, 1000);
     });
 
+    $(document).on('submit', '#addTypeProductForm', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '../Admin/func_ajax.php',
+            data: $(this).serialize() + '&action=addCategory',
+            dataType: 'json',
+            success: function(response) {
+                $('#message').text(response.message);
+                if (response.success) {
+                    $('#addTypeProductForm')[0].reset();
+                }
+            }
+        });
+    });
 });
 
 function loadPage(page) {
