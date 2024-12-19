@@ -22,21 +22,9 @@ $(document).ready(function() {
         var page = $(this).data('page');
         $('#loader').show();
         setTimeout(function() {
+            loadPage(page);
             history.pushState(null, '', '?page=' + page);
         }, 1000);
-    });
-
-    $('#add-type-product').on('submit', function(event) {
-        event.preventDefault();
-        var formData = $(this).serialize();
-        $.ajax({
-            url: '../../func_ajax.php', // Corrected path
-            type: 'POST',
-            data: formData,
-            success: function(response) {
-                $('#result').html(response);
-            }
-        });
     });
 
 });

@@ -1,4 +1,4 @@
 <?php
-    require '../../fucn.php';
+    require '../fucn.php';
 ?>
 <?php payment_view(); ?>
