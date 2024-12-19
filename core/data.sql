@@ -6,7 +6,6 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
 -- Modify existing users table to add role
 ALTER TABLE users 
 ADD COLUMN role ENUM('admin', 'user', 'non-user') NOT NULL DEFAULT 'non-user';
@@ -19,15 +18,15 @@ UPDATE users SET role = 'non-user' WHERE role IS NULL;
 
 -- Create table for product categories
 CREATE TABLE product_categories (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Create table for products
 CREATE TABLE products (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
     name VARCHAR(100) NOT NULL,
-    category_id INT,
+    category_id CHAR(6),
     price DECIMAL(10, 2) NOT NULL,
     description TEXT,
     image VARCHAR(255),
@@ -37,34 +36,34 @@ CREATE TABLE products (
 
 -- Create table for product imports
 CREATE TABLE product_imports (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
     name VARCHAR(100) NOT NULL,
-    category_id INT,
+    category_id CHAR(6),
     price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (category_id) REFERENCES product_categories(id)
 );
 
 -- Create table for customer types
 CREATE TABLE customer_types (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
     name VARCHAR(100) NOT NULL UNIQUE
 );
 
 -- Create table for customers
 CREATE TABLE customers (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id CHAR(6) PRIMARY KEY DEFAULT (LEFT(UUID(), 6)),
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     phone VARCHAR(20),
     address VARCHAR(255),
-    type_id INT,
+    type_id CHAR(6),
     FOREIGN KEY (type_id) REFERENCES customer_types(id)
 );
 
 -- Create table for payments
 CREATE TABLE payments (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    customer_id INT,
+    customer_id CHAR(6),
     amount DECIMAL(10, 2) NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (customer_id) REFERENCES customers(id)

@@ -39,6 +39,8 @@ $(document).ready(function() {
         }, 1000);
     });
 
+});
+
 function loadPage(page) {
     $.ajax({
         url: '../Admin/Pages/' + page + '.php',
