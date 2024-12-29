@@ -153,7 +153,7 @@ $(document).ready(function() {
                     if (result.success) {
                         showAlert(result.message, 'success');
                         $('#formContainer').slideUp();
-                        setTimeout(() => loadPage('product'), 1500);
+                        setTimeout(() => location.reload(), 1500); // Reload page after 1.5 seconds
                     } else {
                         showAlert(result.message, 'danger');
                     }

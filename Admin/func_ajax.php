@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $sql = "UPDATE products SET name=?, category_id=?, price=?, description=?, quantity=? WHERE id=?";
                 $stmt = mysqli_prepare($conn, $sql);
-                mysqli_stmt_bind_param($stmt, "ssdsii", $name, $categoryId, $price, $description, $quantity, $id);
+                mysqli_stmt_bind_param($stmt, "sssisi", $name, $categoryId, $price, $description, $quantity, $id);
                 
                 if (mysqli_stmt_execute($stmt)) {
                     $success = handleImageUpload($id, $categoryId);
