@@ -2,7 +2,11 @@
 $conn;
 function connect()
 {
-    $conn = mysqli_connect('localhost', 'huyviesea', 'huyviesea_db', 'data_center') or die('Không thể kết nối!');
+    $conn = mysqli_connect('localhost', 'huyviesea', 'huyviesea_db', 'data_center');
+    if (!$conn) {
+        error_log('Database connection failed: ' . mysqli_connect_error());
+        die('Không thể kết nối!');
+    }
     mysqli_set_charset($conn, 'utf8');
     return $conn;
 }
@@ -25,6 +29,7 @@ function type_product()
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +37,10 @@ function type_product()
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['name']; ?></td>
+                        <td>
+                            <button class="btn btn-primary edit-category" data-id="<?php echo $row['id']; ?>" data-name="<?php echo $row['name']; ?>">Edit</button>
+                            <button class="btn btn-danger delete-category" data-id="<?php echo $row['id']; ?>">Delete</button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -50,6 +59,7 @@ function product_view()
     disconnect($conn);
     ?>
     <div class="view-table">
+        <button class="btn btn-success" id="addProductBtn">Add Product</button>
         <table id="table">
             <thead>
                 <tr>
@@ -60,6 +70,7 @@ function product_view()
                     <th>Description</th>
                     <th>Image</th>
                     <th>Quantity</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,23 +84,23 @@ function product_view()
                         <td>
                             <?php 
                             if (!empty($row['image'])) {
-                                $imagePath = "../upload/{$row['category_id']}/{$row['id']}/{$row['image']}";
-                                if (file_exists($imagePath)) {
-                                    echo "<img src='$imagePath' alt='Product Image' width='50'>";
+                                // Fix the image path
+                                $imagePath = "/my_proj/Admin/upload/{$row['category_id']}/{$row['id']}/{$row['image']}";
+                                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $imagePath)) {
+                                    echo "<img src='$imagePath' alt='Product Image' style='width: 50px; height: 50px; object-fit: cover;'>";
                                 } else {
-                                    echo "No Image";
-                                    // Debugging information
-                                    echo "<br>Path: $imagePath";
-                                    echo "<br>File does not exist.";
+                                    echo "Image not found";
                                 }
                             } else {
-                                echo "No Image";
-                                // Debugging information
-                                echo "<br>Image field is empty.";
+                                echo "No image";
                             }
                             ?>
                         </td>
                         <td><?php echo $row['quantity']; ?></td>
+                        <td>
+                            <button class="btn btn-primary edit-product" data-id="<?php echo $row['id']; ?>">Edit</button>
+                            <button class="btn btn-danger delete-product" data-id="<?php echo $row['id']; ?>">Delete</button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -203,11 +214,12 @@ function type_user()
 function user_view()
 {
     $conn = connect();
-    $sql = "SELECT id, username, email, role FROM users LIMIT 10"; // Limit to 10 rows
+    $sql = "SELECT id, username, email, role FROM users";
     $result = mysqli_query($conn, $sql);
     disconnect($conn);
     ?>
     <div class="view-table">
+        <button class="btn btn-success mb-3" id="addUserBtn">Add User</button>
         <table id="table">
             <thead>
                 <tr>
@@ -215,6 +227,7 @@ function user_view()
                     <th>Username</th>
                     <th>Email</th>
                     <th>Role</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -224,6 +237,10 @@ function user_view()
                         <td><?php echo $row['username']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['role']; ?></td>
+                        <td>
+                            <button class="btn btn-primary btn-sm edit-user" data-id="<?php echo $row['id']; ?>">Edit</button>
+                            <button class="btn btn-danger btn-sm delete-user" data-id="<?php echo $row['id']; ?>">Delete</button>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>

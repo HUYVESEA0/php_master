@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />>
     <link rel="stylesheet" href="../Admin/lib/style.css">
     <link rel="stylesheet" href="../Admin/lib/loader.css">
+    <link rel="stylesheet" href="../Admin/lib/btn.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -60,9 +61,6 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="type-product">Nhóm</a>
-                            <a href="#" class="ajax-link" data-page="add-type-product">Thêm nhóm mới</a>
-                            <a href="#" class="ajax-link" data-page="product-list">Danh sách sản phẩm</a>
-                            <a href="#" class="ajax-link" data-page="add-product">Thêm sản phẩm mới</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
@@ -72,7 +70,6 @@
                         </a>
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="type-customer">Loại khách hàng</a>
-                            <a href="#" class="ajax-link" data-page="add-type-customer">Thêm loại khách hàng mới</a>
                             <a href="#" class="ajax-link" data-page="customer-list">Danh sách khách hàng</a>
                         </div>
                     </li>
@@ -85,7 +82,6 @@
                             <a href="#" class="ajax-link" data-page="payment-history">Lịch sử giao dịch</a>
                             <a href="#" class="ajax-link" data-page="payment-status">Trạng thái thanh toán</a>
                             <a href="#" class="ajax-link" data-page="payment-methods">Phương thức thanh toán</a>
-                            <a href="#" class="ajax-link" data-page="payment-add-method">Thêm phương thức thanh toán</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
@@ -96,7 +92,6 @@
                         <div class="dropdown-content">
                             <a href="#" class="ajax-link" data-page="user-role">Phân quyền</a>
                             <a href="#" class="ajax-link" data-page="user-list">Danh sách truy cập</a>
-                            <a href="#" class="ajax-link" data-page="add-user">Thêm người dùng mới</a>
                         </div>
                     </li>
                     <li class="nav-link dropdown">
@@ -114,7 +109,7 @@
             <div class="bottom-content">
                 <ul>
                     <li class="">
-                        <a href="#" class="ajax-link">
+                        <a href="logout.php">
                             <i class='ri-logout-box-line icon'></i>
                             <span class="text nav-text">Logout</span>
                         </a>

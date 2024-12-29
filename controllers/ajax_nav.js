@@ -1,16 +1,14 @@
 $(document).ready(function() {
-
-    $('#content').load('../Pages/home.php', function() {
-        history.pushState(null, '', '?page=home');
-    });
+    var initialPage = new URLSearchParams(window.location.search).get('page') || 'home';
+    loadPage(initialPage);
 
     $('.ajax-link').click(function(event) {
         event.preventDefault();
         var page = $(this).data('page');
         $('#loader').show();
         setTimeout(function() {
-        loadPage(page);
-        history.pushState(null, '', '?page=' + page);
+            loadPage(page);
+            history.pushState(null, '', '?page=' + page);
         }, 1000);
     });
 
@@ -20,20 +18,18 @@ $(document).ready(function() {
         if (page) {
             $('#loader').show();
             setTimeout(function() {
-            loadPage(page);
+                loadPage(page);
             }, 1000);
         } else {
             $('#loader').show();
             setTimeout(function() {
-            loadPage('home');
+                loadPage('home');
             }, 1000);
-            
         }
     };
 });
 
 function loadPage(page) {
-
     $.ajax({
         url: '../Pages/' + page + '.php',
         type: 'POST',

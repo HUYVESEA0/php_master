@@ -247,3 +247,31 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    padding: 12px 25px;
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 75, 43, 0.3);
+}
+
+.back-btn i {
+    font-size: 14px;
+}

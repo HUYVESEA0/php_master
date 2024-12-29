@@ -35,6 +35,9 @@ CREATE TABLE products (
     FOREIGN KEY (category_id) REFERENCES product_categories(id)
 );
 
+-- Add image column to products table
+ALTER TABLE products ADD COLUMN image VARCHAR(255);
+
 -- Create table for product imports
 CREATE TABLE product_imports (
     id CHAR(6) PRIMARY KEY,
@@ -68,4 +71,22 @@ CREATE TABLE payments (
     amount DECIMAL(10, 2) NOT NULL,
     date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (customer_id) REFERENCES customers(id)
+);
+
+-- Create table for cart
+CREATE TABLE cart (
+    id CHAR(6) PRIMARY KEY,
+    user_id CHAR(6),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Create table for cart items
+CREATE TABLE cart_items (
+    id CHAR(6) PRIMARY KEY,
+    cart_id CHAR(6),
+    product_id CHAR(6),
+    quantity INT NOT NULL,
+    FOREIGN KEY (cart_id) REFERENCES cart(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );

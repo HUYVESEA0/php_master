@@ -3,7 +3,7 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: './auth/register_Process.php',
+            url: './register_Process.php',
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
@@ -22,14 +22,13 @@ $(document).ready(function() {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: './auth/login_Process.php',
+            url: './login_Process.php',
             data: $(this).serialize(),
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
-                    console.log(response);
                     alert('Login successful!');
-                    window.location.href = 'controllers/Nav_control.php'; // Redirect to dashboard or another page
+                    window.location.href = response.redirect;
                 } else {
                     alert('Login failed: ' + response.message);
                 }

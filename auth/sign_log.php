@@ -10,15 +10,16 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/af141631fb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./public/css/index.css">
-    <script type="text/javascript" src="./core/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="./sign_log.css">
+    <script type="text/javascript" src="../core/jquery-3.7.1.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
+    <a href="../index.php" class="back-btn"><i class="fas fa-arrow-left"></i> Back</a>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="./auth/register_Process.php" id="register_Form" method="post">
+            <form action="register_Process.php" id="register_Form" method="post">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -35,7 +36,7 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="./auth/login_Process.php" id="login_Form" method="post">
+            <form id="login_Form" method="post">
                 <h1>Sign in</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -47,7 +48,7 @@
                     required />
                 <input type="password" placeholder="Password" id="password" name="password"
                     autocomplete="current-password" required />
-                <a href="./auth/forgot_Process.php">Forgot your password?</a>
+                <a href="#">Forgot your password?</a>
                 <button type="submit">Sign In</button>
             </form>
         </div>
@@ -66,8 +67,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="./public/js/index.js"></script>
-    <script type="text/javascript" src="./controllers/ajax_process_form.js"></script>
+    <script type="text/javascript" src="./sign_log.js"></script>
+    <script type="text/javascript" src="./ajax_process_form.js"></script>
 </body>
 
 </html>
